@@ -1,4 +1,4 @@
-package org.mddarr.relation_patient_service.models;
+package org.mddarr.relational_appointment_service.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
