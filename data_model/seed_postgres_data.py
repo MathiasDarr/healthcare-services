@@ -6,6 +6,7 @@ This script populates a Postgres database with the data needed for the applicati
 import psycopg2
 import csv
 
+
 def populate_patients_table():
     create_patients_table = """
             CREATE TABLE IF NOT EXISTS patients (
@@ -24,7 +25,8 @@ def populate_patients_table():
         reader = csv.DictReader(csvfile)
 
         for row in reader:
-            cur.execute(insert_into_patients_table, [row['patient_id'], row['first_name'], row["last_name"], row['age']])
+            cur.execute(insert_into_patients_table,
+                        [row['patient_id'], row['first_name'], row["last_name"], row['age']])
     conn.commit()
 
 
@@ -46,7 +48,8 @@ def populate_providers_table():
     with open(PROVIDERS_CSV_FILE, newline='') as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
-            cur.execute(insert_into_providers_table, [row['provider_id'], row['first_name'], row["last_name"], row['title'], row['department']])
+            cur.execute(insert_into_providers_table,
+                        [row['provider_id'], row['first_name'], row["last_name"], row['title'], row['department']])
     conn.commit()
 
 
@@ -67,15 +70,14 @@ def populate_appointments_table():
     with open(PROVIDERS_CSV_FILE, newline='') as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
-            cur.execute(insert_into_appointments_table, [row['appointment_id'], row['patient_id'], row["provider_id"], row['appointment_time']])
+            cur.execute(insert_into_appointments_table,
+                        [row['appointment_id'], row['patient_id'], row["provider_id"], row['appointment_time']])
     conn.commit()
 
 
-if __name__ =='__main__':
-
+if __name__ == '__main__':
     conn = psycopg2.connect(host="localhost", port="5432", user="postgres", password="postgres", database="postgresdb")
     cur = conn.cursor()
-
     populate_patients_table()
     populate_providers_table()
     populate_appointments_table()
