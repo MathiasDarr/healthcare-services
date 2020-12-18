@@ -89,6 +89,6 @@ if __name__ =='__main__':
     except Exception as e:
         print(e)
 
-    # populate_patients_table()
-    # populate_providers_table()
+    populate_patients_table()
+    populate_providers_table()
     populate_appointments_table()

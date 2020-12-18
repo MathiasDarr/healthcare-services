@@ -8,7 +8,7 @@ import csv
 
 def populate_patients_table():
     create_patients_table = """
-            CREATE TABLE patients (
+            CREATE TABLE IF NOT EXISTS patients (
                     patient_id VARCHAR(50) PRIMARY KEY,
                     first_name VARCHAR(30),
                     last_name VARCHAR(30),
@@ -27,9 +27,10 @@ def populate_patients_table():
             cur.execute(insert_into_patients_table, [row['patient_id'], row['first_name'], row["last_name"], row['age']])
     conn.commit()
 
+
 def populate_providers_table():
     create_providers_table = """
-            CREATE TABLE providers (
+            CREATE TABLE IF NOT EXISTS providers (
                     provider_id VARCHAR(50) PRIMARY KEY,
                     first_name VARCHAR(30),
                     last_name VARCHAR(30),
@@ -49,6 +50,27 @@ def populate_providers_table():
     conn.commit()
 
 
+def populate_appointments_table():
+    create_providers_table = """
+            CREATE TABLE IF NOT EXISTS appointments (
+                    appointment_id VARCHAR(50) PRIMARY KEY,
+                    patient_id VARCHAR(50) REFERENCES patients(patient_id) ,
+                    provider_id VARCHAR(50) REFERENCES providers(provider_id),
+                    appointment_time timestamp
+            );
+    """
+    cur.execute(create_providers_table)
+    conn.commit()
+
+    insert_into_appointments_table = """INSERT INTO appointments(appointment_id, patient_id, provider_id, appointment_time) VALUES(%s,%s,%s,%s);"""
+    PROVIDERS_CSV_FILE = 'data/appointments/patient_appointments.csv'
+    with open(PROVIDERS_CSV_FILE, newline='') as csvfile:
+        reader = csv.DictReader(csvfile)
+        for row in reader:
+            cur.execute(insert_into_appointments_table, [row['appointment_id'], row['patient_id'], row["provider_id"], row['appointment_time']])
+    conn.commit()
+
+
 if __name__ =='__main__':
 
     conn = psycopg2.connect(host="localhost", port="5432", user="postgres", password="postgres", database="postgresdb")
@@ -56,3 +78,4 @@ if __name__ =='__main__':
 
     populate_patients_table()
     populate_providers_table()
+    populate_appointments_table()
