@@ -36,6 +36,7 @@ create_patient_appointments_table = """CREATE TABLE IF NOT EXISTS patients_appoi
 
 insert_patients_appointment_query = "INSERT INTO patients_appointments(patient_id, appointment_time, provider_id, length) VALUES(%s, %s, %s, %s);"
 
+
 def insert_into_patients_appointments_table(row):
     dbsession.execute(insert_patients_appointment_query,
                       [row['patient_id'], row['appointment_time'], row['provider_id'], row['length']])
@@ -51,4 +52,3 @@ with open(PROVIDERS_CSV_FILE, newline='') as csvfile:
         print(row['appointment_time'])
         dbsession.execute(insert_patients_appointment_query,
                           [row['patient_id'], row['appointment_time'], row['provider_id'], int(row['length'])])
-
