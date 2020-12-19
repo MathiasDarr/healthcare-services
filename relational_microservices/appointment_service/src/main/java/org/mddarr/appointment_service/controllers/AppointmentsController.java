@@ -6,6 +6,7 @@ import org.mddarr.appointment_service.models.reqests.AppointmentRequest;
 import org.mddarr.appointment_service.services.AppointmentsService;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.http.HttpResponse;
 import java.util.List;
 
 @RestController
@@ -32,6 +33,11 @@ public class AppointmentsController {
         String patient_id = "54703348-02ec-4d2d-a6d5-722002d6f0f1";
         String appointment_id = appointmentsService.postAppointment(appointmentRequest, patient_id);
         return appointment_id;
+    }
+
+    @DeleteMapping(value="appointments/{appointment_id}")
+    public void deleteAppointment(@PathVariable String appointment_id){
+        appointmentsService.deleteAppointment(appointment_id);
     }
 
 }

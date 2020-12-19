@@ -15,6 +15,6 @@ public interface AppointmentServiceInterface {
 
     String postAppointment(AppointmentRequest appointmentRequest, String patient_id);
 
-
+    void deleteAppointment(String appointment_id);
 
 }

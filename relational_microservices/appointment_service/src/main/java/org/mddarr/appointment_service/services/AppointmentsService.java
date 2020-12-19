@@ -9,6 +9,7 @@ import org.mddarr.appointment_service.models.reqests.AppointmentRequest;
 import org.mddarr.appointment_service.repositories.AppointmentRepository;
 import org.mddarr.appointment_service.repositories.PatientRepository;
 import org.mddarr.appointment_service.repositories.ProviderRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,17 +18,19 @@ import java.util.UUID;
 
 @Service
 public class AppointmentsService implements AppointmentServiceInterface {
+    @Autowired
+    AppointmentRepository appointmentsRepository;
+    @Autowired
+    PatientRepository patientRepository;
+    @Autowired
+    ProviderRepository providerRepository;
 
-    private final AppointmentRepository appointmentsRepository;
-    private final PatientRepository patientRepository;
-    private final ProviderRepository providerRepository;
 
-
-    public AppointmentsService(AppointmentRepository appointmentsRepository, PatientRepository patientRepository, ProviderRepository providerRepository){
-        this.appointmentsRepository = appointmentsRepository;
-        this.patientRepository = patientRepository;
-        this.providerRepository = providerRepository;
-    }
+//    public AppointmentsService(AppointmentRepository appointmentsRepository, PatientRepository patientRepository, ProviderRepository providerRepository){
+//        this.appointmentsRepository = appointmentsRepository;
+//        this.patientRepository = patientRepository;
+//        this.providerRepository = providerRepository;
+//    }
 
     @Override
     public List<Appointment> getAppointments() {
@@ -46,8 +49,6 @@ public class AppointmentsService implements AppointmentServiceInterface {
 
     @Override
     public String postAppointment(AppointmentRequest appointmentRequest, String patient_id) {
-
-
         Optional<Patient> patient_result = patientRepository.findById(patient_id);
         Optional<Provider> provider_result = providerRepository.findById(appointmentRequest.getProvider_id());
 
@@ -67,4 +68,14 @@ public class AppointmentsService implements AppointmentServiceInterface {
             return "-1";
         }
     }
+
+    @Override
+    public void deleteAppointment(String appointment_id) {
+
+        Optional<Appointment> appointment_result = appointmentsRepository.findById(appointment_id);
+        appointment_result.ifPresent(appointmentsRepository::delete);
+
+    }
+
+
 }

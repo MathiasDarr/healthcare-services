@@ -1,10 +1,9 @@
 package org.mddarr.patient_service.controllers;
 
 import org.mddarr.patient_service.models.Patient;
+import org.mddarr.patient_service.models.requests.PostPatientRequest;
 import org.mddarr.patient_service.services.PatientService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -28,5 +27,8 @@ public class PatientsController {
         return patientService.getPatientDetail(patient_id);
     }
 
-
+    @PutMapping(value="patients")
+    public String createPatient(@RequestBody PostPatientRequest postPatientRequest){
+        return patientService.postPatient(postPatientRequest);
+    }
 }
