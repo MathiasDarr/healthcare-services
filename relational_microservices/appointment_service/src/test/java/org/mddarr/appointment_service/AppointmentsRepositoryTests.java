@@ -13,6 +13,7 @@ import org.mddarr.appointment_service.services.AppointmentsService;
 import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Bean;
@@ -21,38 +22,38 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.UUID;
 
+@SpringBootTest
 @ExtendWith(SpringExtension.class)
-@DataJpaTest
 public class AppointmentsRepositoryTests {
 
-    @MockBean
-    private AppointmentRepository appointmentRepository;
-
-    @MockBean
-    private PatientRepository patientRepository;
-
-    @MockBean
-    ProviderRepository providerRepository;
-
-    @TestConfiguration
-    static class AppointmentServiceTestContextConfiguration{
-
-        @Bean
-        public AppointmentServiceInterface appointmentService(){
-            return new AppointmentsService();
-        }
-    }
-
-    @BeforeEach
-    public void setUp(){
-        Patient patient = new Patient();
-        String patient_id = UUID.randomUUID().toString();
-        patient.setPatient_id(patient_id);
-        patient.setAge(12);
-        patient.setFirst_name("Alex");
-        patient.setLast_name("Jones");
-        patientRepository.save(patient);
-    }
+//    @MockBean
+//    private AppointmentRepository appointmentRepository;
+//
+//    @MockBean
+//    private PatientRepository patientRepository;
+//
+//    @MockBean
+//    ProviderRepository providerRepository;
+//
+//    @TestConfiguration
+//    static class AppointmentServiceTestContextConfiguration{
+//
+//        @Bean
+//        public AppointmentServiceInterface appointmentService(){
+//            return new AppointmentsService();
+//        }
+//    }
+//
+//    @BeforeEach
+//    public void setUp(){
+//        Patient patient = new Patient();
+//        String patient_id = UUID.randomUUID().toString();
+//        patient.setPatient_id(patient_id);
+//        patient.setAge(12);
+//        patient.setFirst_name("Alex");
+//        patient.setLast_name("Jones");
+//        patientRepository.save(patient);
+//    }
 
 
 //    @Test
