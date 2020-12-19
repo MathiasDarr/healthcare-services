@@ -19,8 +19,8 @@
 		<java.version>11</java.version>
 	</properties>
 	<modules>
-		<module>patient_service</module>
-		<module>appointment_service</module>
+<!--		<module>patient_service</module>-->
+<!--		<module>appointment_service</module>-->
 		<module>provider_service</module>
 
 	</modules>
