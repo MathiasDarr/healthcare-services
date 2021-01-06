@@ -81,3 +81,4 @@ if __name__ == '__main__':
     populate_patients_table()
     populate_providers_table()
     populate_appointments_table()
+    print("THE POSTGRES DATABASE HAS BEEN SEEDED")
