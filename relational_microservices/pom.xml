@@ -19,7 +19,6 @@
 	<modules>
 <!--		<module>patient_service</module>-->
 <!--		<module>appointment_service</module>-->
-		<module>basics</module>
 		<module>provider_service</module>
 
 	</modules>

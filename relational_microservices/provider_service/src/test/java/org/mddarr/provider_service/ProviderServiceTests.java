@@ -37,7 +37,6 @@ class ProviderServiceTests {
 		postProviderRequest.setLast_name(last_name);
 		providerService.postProvider(postProviderRequest);
 
-
 	}
 
 
@@ -46,7 +45,5 @@ class ProviderServiceTests {
 		List<Provider> providers = providerService.getProviders();
 		System.out.println("THE LENGTH OF THE PROVIDERS IS " + providers.size());
 	}
-
-
 
 }
