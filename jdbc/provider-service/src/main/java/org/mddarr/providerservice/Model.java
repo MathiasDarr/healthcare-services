@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package example.springdata.jdbc.basics.aggregate;
+package org.mddarr.providerservice;
 
 import lombok.AccessLevel;
 import lombok.Value;

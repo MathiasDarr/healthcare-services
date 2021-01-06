@@ -19,7 +19,7 @@ public class Provider {
     private String department;
 
     static Provider create(String firstname, String lastname, String title, String department){
-        return new Provider(UUID.randomUUID().toString(),firstname, lastname, title, department);
+        return new Provider(null,firstname, lastname, title, department);
     }
 
     public void setId(String provider_id) {

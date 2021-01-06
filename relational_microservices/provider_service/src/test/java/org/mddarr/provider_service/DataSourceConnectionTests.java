@@ -14,6 +14,8 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.SQLException;
 //
 
 @ExtendWith(SpringExtension.class)
@@ -25,8 +27,11 @@ public class DataSourceConnectionTests {
     private DataSource dataSource;
 
     @Test
-    public void test1(){
-
+    public void test1() throws SQLException {
+        Connection connection1 = dataSource.getConnection();
+        Connection connection2 = dataSource.getConnection();
+        connection1.close();
+        Connection connection3 = dataSource.getConnection();
     }
 
 

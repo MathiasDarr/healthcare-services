@@ -1,5 +1,6 @@
 package org.mddarr.provider_service;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -20,6 +21,6 @@ public class RelationalProviderServiceApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		System.out.println("THE DATA SOURCE LOOKS LIKE " + dataSource);
+//		System.out.println("THE DATA SOURCE LOOKS LIKE " + dataSource);
 	}
 }

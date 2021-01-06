@@ -13,13 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package example.springdata.jdbc.basics.aggregate;
-
-import static java.util.Arrays.*;
-
-import java.sql.Clob;
-import java.sql.SQLException;
-import java.util.concurrent.atomic.AtomicInteger;
+package org.mddarr.providerservice;
 
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.annotation.Bean;
@@ -37,6 +31,11 @@ import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
 import org.springframework.lang.Nullable;
 
 import javax.sql.DataSource;
+import java.sql.Clob;
+import java.sql.SQLException;
+import java.util.concurrent.atomic.AtomicInteger;
+
+import static java.util.Arrays.asList;
 
 /**
  * @author Jens Schauder

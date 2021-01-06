@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package example.springdata.jdbc.basics.aggregate;
+package org.mddarr.providerservice;
 
 /**
  * Age group for which a {@link LegoSet} is intended.

@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgresdb
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: postgres
+    dbcp2:
+      max-idle: 2
+      initial-size: 5
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+

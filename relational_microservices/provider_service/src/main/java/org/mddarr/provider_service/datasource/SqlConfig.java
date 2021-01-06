@@ -19,6 +19,7 @@ public class SqlConfig {
         config.setJdbcUrl("jdbc:postgresql://localhost:5432/postgresdb");
         config.setUsername("postgres");
         config.setPassword("postgres");
+
         return new HikariDataSource(config);
     }
 }

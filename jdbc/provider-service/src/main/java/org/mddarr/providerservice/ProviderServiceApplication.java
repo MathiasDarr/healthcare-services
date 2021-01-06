@@ -19,6 +19,8 @@ public class ProviderServiceApplication {
 			Provider provider1 = Provider.create("Zuk", "Edward", "Nurse", "Orthopedics");
 			Provider provider2 = Provider.create("Charles", "Dubin", "Nurse","Family Medicine");
 
+//			providerRepository.save(provider1);
+
 			Iterable<Provider> providerIterable = providerRepository.findAll();
 			providerIterable.forEach(provider ->{
 				System.out.println("The providers name is " + provider.getFirst_name());

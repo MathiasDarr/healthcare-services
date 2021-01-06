@@ -13,25 +13,23 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package example.springdata.jdbc.basics.aggregate;
+package org.mddarr.providerservice;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.With;
-import lombok.With;
-
-import java.time.Period;
-import java.time.temporal.ChronoUnit;
-import java.util.HashMap;
-import java.util.Map;
-
 import org.springframework.data.annotation.AccessType;
 import org.springframework.data.annotation.AccessType.Type;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.MappedCollection;
+
+import java.time.Period;
+import java.time.temporal.ChronoUnit;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * A Lego Set consisting of multiple Blocks and a manual
@@ -57,6 +55,11 @@ public class LegoSet {
 	// You can build multiple models from one LegoSet
 	@MappedCollection(keyColumn = "NAME")
 	private final @AccessType(Type.FIELD) @With(AccessLevel.PACKAGE) Map<String, Model> models;
+
+	public LegoSet create(){
+		return new LegoSet(null,"item1", Period(3,7));
+	}
+
 
 	LegoSet() {
 		this.models = new HashMap<>();

@@ -18,7 +18,8 @@
 
 	<modules>
 
-		<module>provider-service</module>
+<!--		<module>provider-service</module>-->
+		<module>connection-pool</module>
 
 	</modules>
 

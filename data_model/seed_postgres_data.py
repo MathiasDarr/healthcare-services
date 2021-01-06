@@ -78,7 +78,7 @@ def populate_appointments_table():
 if __name__ == '__main__':
     conn = psycopg2.connect(host="localhost", port="5432", user="postgres", password="postgres", database="postgresdb")
     cur = conn.cursor()
-    populate_patients_table()
+    # populate_patients_table()
     populate_providers_table()
-    populate_appointments_table()
+    # populate_appointments_table()
     print("THE POSTGRES DATABASE HAS BEEN SEEDED")
