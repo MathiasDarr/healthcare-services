@@ -1,8 +1,9 @@
-package org.mddarr.provider_service.services;
+package org.mddarr.user.auth.service.services;
 
-import org.mddarr.provider_service.models.Provider;
-import org.mddarr.provider_service.models.requests.PostProviderRequest;
-import org.mddarr.provider_service.repositories.ProviderRepository;
+
+import org.mddarr.user.auth.service.models.Provider;
+import org.mddarr.user.auth.service.models.requests.PostProviderRequest;
+import org.mddarr.user.auth.service.repositories.ProviderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -40,6 +41,7 @@ public class ProviderService implements ProviderServiceInterface {
         provider.setDepartment(postProviderRequest.getDepartment());
         provider.setLast_name(postProviderRequest.getLast_name());
         provider.setFirst_name(postProviderRequest.getFirst_name());
+        provider.setTitle(postProviderRequest.getTitle());
         providerRepository.save(provider);
         return provider_id;
     }

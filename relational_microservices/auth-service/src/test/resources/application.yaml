@@ -5,5 +5,5 @@ spring.datasource.password: postgres
 spring.jpa.database-platform: org.hibernate.dialect.PostgreSQLDialect
 spring.jpa.hibernate.ddl-auto: none
   # This line is only needed if you are using flyway for database migrations
-# and not using the default location of `db/migration`
+  # and not using the default location of `db/migration`
 spring.flyway.locations=classpath: db/migration/

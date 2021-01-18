@@ -28,6 +28,9 @@ public class DataSourceConnectionTests {
 
     @Test
     public void test1() throws SQLException {
+        /*
+        Test the maximum connection pool limit.
+         */
         Connection connection1 = dataSource.getConnection();
         Connection connection2 = dataSource.getConnection();
         connection1.close();

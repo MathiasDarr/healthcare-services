@@ -1,0 +1,1 @@
+INSERT INTO providers.users(userid, first_name, last_name, email,password, update_ts) VALUES('user1','Charles','Dickens','cdick@gmail.com','password',current_timestamp)

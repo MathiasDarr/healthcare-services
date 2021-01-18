@@ -10,7 +10,6 @@ import javax.sql.DataSource;
 @Configuration
 public class SqlConfig {
 
-
     @Bean
     DataSource dataSource() {
         HikariConfig config = new HikariConfig();
