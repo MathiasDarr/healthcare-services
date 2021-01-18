@@ -8,3 +8,11 @@ CREATE TABLE IF NOT EXISTS providers.providers(
     department VARCHAR NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS providers.patients(
+    patient_id VARCHAR(50) PRIMARY KEY,
+    first_name VARCHAR NOT NULL,
+    last_name VARCHAR NOT NULL,
+    age INTEGER
+);
+
+
