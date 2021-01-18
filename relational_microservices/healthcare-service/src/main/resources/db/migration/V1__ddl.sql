@@ -15,4 +15,11 @@ CREATE TABLE IF NOT EXISTS providers.patients(
     age INTEGER
 );
 
+CREATE TABLE IF NOT EXISTS providers.appointments(
+    appointmentid VARCHAR(50) PRIMARY KEY,
+    providerid VARCHAR(50) REFERENCES providers.providers(providerid),
+    patientid VARCHAR(50) REFERENCES providers.patients(patientid),
+    appointment_time timestamp,
+    appointment_length int
+);
 

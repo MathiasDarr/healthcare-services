@@ -16,11 +16,9 @@ CREATE TABLE IF NOT EXISTS providers.patients(
 );
 
 CREATE TABLE IF NOT EXISTS providers.appointments(
-    appointment_id VARCHAR(50) PRIMARY KEY,
-    patientid VARCHAR(50) PRIMARY KEY,
-    first_name VARCHAR NOT NULL,
-    last_name VARCHAR NOT NULL,
-    age INTEGER
+    appointmentid VARCHAR(50) PRIMARY KEY,
+    providerid VARCHAR(50) REFERENCES providers.providers(providerid),
+    patientid VARCHAR(50) REFERENCES providers.patients(patientid)
 );
 
 
