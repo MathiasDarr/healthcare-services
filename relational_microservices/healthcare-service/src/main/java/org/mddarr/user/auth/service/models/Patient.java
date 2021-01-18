@@ -17,7 +17,7 @@ import javax.persistence.Table;
 public class Patient {
 
     @Id
-    private String patient_id;
+    private String patientid;
     @Column
     private String first_name;
     @Column

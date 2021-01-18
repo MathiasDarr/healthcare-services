@@ -33,7 +33,7 @@ public class PatientService implements PatientServiceInterface {
     public String postPatient(PostPatientRequest postPatientRequest) {
         Patient patient = new Patient();
         String patient_id = UUID.randomUUID().toString();
-        patient.setPatient_id(patient_id);
+        patient.setPatientid(patient_id);
         patient.setAge(postPatientRequest.getAge());
         patient.setLast_name(postPatientRequest.getLast_name());
         patient.setFirst_name(postPatientRequest.getFirst_name());

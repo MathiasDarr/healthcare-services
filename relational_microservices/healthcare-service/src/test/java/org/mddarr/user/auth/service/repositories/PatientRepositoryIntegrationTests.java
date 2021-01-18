@@ -27,14 +27,14 @@ public class PatientRepositoryIntegrationTests {
     public void test_save_and_get_patient_by_id() {
         Patient patient = new Patient();
         final String patientid = UUID.randomUUID().toString();
-        patient.setPatient_id(patientid);
+        patient.setPatientid(patientid);
         patient.setFirst_name("Donald");
         patient.setLast_name("Gabh");
         patient.setAge(29);
 
         Patient patient2 = new Patient();
         final String patientid2 = UUID.randomUUID().toString();
-        patient2.setPatient_id(patientid2);
+        patient2.setPatientid(patientid2);
         patient2.setFirst_name("Jonas");
         patient2.setLast_name("Gooor");
         patient2.setAge(39);
